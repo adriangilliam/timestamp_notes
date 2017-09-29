@@ -13,21 +13,35 @@
 			<div class="row">
 				<h1 class="col-lg-4 col-lg-offset-4 heading">Timestamp Notes</h1>
 			</div>
-			<div class="row">
-				<div class="col-xs-8 col-xs-offset-2">
-					<form id="notes-form">
+			<form id="notes-form">
+				<div class="row">
+					<div class="col-xs-8 col-xs-offset-2">
+						<input id='note-text' class="form-control" type="text" placeholder="Type note here..." />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 col-xs-offset-2 top-padded">
+						<input id='pros-text' class="form-control" type="text" placeholder="Type pros here." />
+					</div>
+					<div class="col-xs-4 top-padded form-group">
 						<div class="form-group">
-							<input id='note-text' class="form-control" type="text" placeholder="Type note here..." />
+							<input id='cons-text' class="form-control" type="text" placeholder="Type cons here." />
 						</div>
 						<div class="pull-right">
 							<button type="submit" class="btn btn-primary">Take Note</button>
 						</div>
-					</form>
+					</div>
+				</div>
+			</form>
+			<div class="row">
+				<div class='well col-xs-8 col-xs-offset-2 top-padded'>
+					<ul class="unf-list" id='notes'></ul>
 				</div>
 			</div>
 			<div class="row">
 				<div class='well col-xs-8 col-xs-offset-2 top-padded'>
-					<ul class="unf-list" id='notes'></ul>
+					<ul class="unf-list" id='pros'></ul>
+					<ul class="unf-list" id='cons'></ul>
 				</div>
 			</div>
 			<div class="row">
