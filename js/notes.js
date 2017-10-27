@@ -25,15 +25,24 @@ $(function() {
         return false;
     });
 
-  $('#clearBtn').on('click', function() {
-      clearNotes();
-  })
+    $('#saveBtn').on('click', function() {
+        saveNotes();
+    });
 
-  FIELDS.forEach(function(field) {
-      if (localStorage[field] != undefined) {
-          $(`#${field}`).html(localStorage[field]);
-      }
-  });
+    $('#clearBtn').on('click', function() {
+        clearNotes();
+    });
+
+    FIELDS.forEach(function(field) {
+        if (localStorage[field] != undefined) {
+            $(`#${field}`).html(localStorage[field]);
+        }
+    });
+
+    if (localStorage.savedNotes != undefined) {
+        $('#savedNotes').html(localStorage.savedNotes);
+    }
+
 });
 
 function takeNote(text) {
@@ -58,10 +67,28 @@ function getTimeStamp() {
 function clearNotes() {
     let response = confirm("Are you sure you want to clear your notes?");
     if (response) {
-        FIELDS.forEach(function(field) {
-            localStorage[field] = '';
-            $(`#${field}`).html('');
-        });
+        clearFields();
     }
 }
 
+function clearFields() {
+    FIELDS.forEach(function(field) {
+        localStorage[field] = '';
+        $(`#${field}`).html('');
+    });
+}
+
+function saveNotes() {
+  let name = prompt("Save as...");
+  if (name != '') {
+    fields = "";
+    FIELDS.forEach(function(field) {
+        fields += $(`#${field}`).html();
+    });
+    note = "<strong>" + name + "</strong>" + fields + "</br>";
+    localStorage.savedNotes += note;
+    $('#savedNotes').append(note);
+
+    clearFields();
+  }
+}
