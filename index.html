@@ -4,20 +4,73 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/notes.css">
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src='js/notes.js'></script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="row">
-				<h1 class="col-lg-4 col-lg-offset-4 heading">Timestamp Notes</h1>
+				<h1 class="col-xs-8 col-xs-offset-1 heading">Timestamp Notes</h1>
+			</div>
+			<div class="row top-padded">
+				<div class="col-xs-8 col-xs-offset-1">
+					<table style="border:1px solid black; border-spacing:5px">
+						<tr>
+							<th>Ability to design, build, and operate software</th>
+							<th>Ability to learn and teach</th>
+							<th>Ability to work and build a team</th>
+							<th> Alignment with company purpose and operating principles </th>
+						</tr>
+						<tr>
+							<td>
+								<ul>
+									<li>Analysis</li>
+									<li>Troubleshooting</li>
+									<li>Code Fluency</li>
+									<li>Code Maintainability</li>
+									<li>Technical Design</li>
+									<li>Domain Specific Knowledge</li>
+								</ul>
+							</td>
+							<td>
+								<ul>
+									<li>Curiosity</li>
+									<li>Awareness</li>
+									<li>Mentorship</li>
+								</ul>
+							</td>
+							<td>
+								<ul>
+									<li>Empathy</li>
+									<li>Communciation</li>
+									<li>Collaboration</li>
+									<li>Community Building</li>
+									<li>Team Effectiveness</li>
+								</ul>
+							</td>
+							<td>
+								<ul>
+									<li>Economoic Empowerment</li>
+									<li>Understanding Someone's Struggle</li>
+									<li>Seeking Divergent Perspectives</li>
+									<li>Taking Principled Risks</li>
+									<li>Inventing and Learning</li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="row top-padded">
 			</div>
 			<div class="row">
-				<div class="col-xs-8 col-xs-offset-2">
+				<div class="col-xs-8 col-xs-offset-1 top-padded">
 					<form id="notes-form">
 						<div class="form-group">
-							<input id='note-text' class="form-control" type="text" placeholder="Start with '+', '-', '~' for pros/cons/mehs, or '=' for overall summary."/>
+							<input id='note-text' class="form-control" type="text" placeholder="Start with '+', '++', '-', '--', '~' or '='."/>
 						</div>
 						<div class="pull-right">
 							<button type="submit" class="btn btn-primary">Take Note</button>
@@ -26,7 +79,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class='well col-xs-8 col-xs-offset-2 top-padded'>
+				<div class='well col-xs-8 col-xs-offset-1 top-padded'>
 					<ul class="unf-list" id='overview'></ul>
 					<ul class="unf-list" id='pros'></ul>
 					<ul class="unf-list" id='mehs'></ul>
@@ -35,7 +88,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-8 col-xs-offset-2">
+				<div class="col-xs-8 col-xs-offset-1">
 					<div class="pull-right">
 						<button id="saveBtn" class="btn btn-primary">Save Notes As...</button>
 						<button id="clearBtn" class="btn btn-danger">Clear Notes</button>
@@ -43,12 +96,12 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-8 col-xs-offset-2 top-padded">
+				<div class="col-xs-8 col-xs-offset-1 top-padded">
 					<h1>Saved Notes</h1>
 				</div>
 			</div>
 			<div class="row">
-				<div class='well col-xs-8 col-xs-offset-2 top-padded'>
+				<div class='well col-xs-8 col-xs-offset-1 top-padded'>
 					<ul class="unf-list" id='savedNotes'></ul>
 				</div>
 			</div>

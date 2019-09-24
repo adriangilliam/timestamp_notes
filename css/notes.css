@@ -10,3 +10,21 @@
 .top-padded {
 	margin-top: 15px;
 }
+
+th, td {
+	text-align:top;
+	padding:10px;
+	border: 1px solid black;
+	vertical-align: top;
+}
+
+th {
+	background-color: #337ab7;
+	color: #fff;
+	font-weight: 400px;
+	font-size: 14px;
+}
+
+ul {
+    padding-inline-start: 20px;
+}
