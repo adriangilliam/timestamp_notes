@@ -33,7 +33,7 @@ const AVAILBLE_DIMENSIONS = [
     'Collaboration',
     'Community Building',
     'Team Effectiveness',
-    'Economoic Empowerment',
+    'Economic Empowerment',
     "Understanding Someone's Struggle",
     "Seeking Divergent Perspectives",
     "Taking Principled Risks",
