@@ -1,4 +1,4 @@
-const FIELDS = ['pros', 'cons', 'mehs', 'overview', 'notes']
+const FIELDS = [ 'name',  'overview', 'next-steps', 'pros', 'cons', 'mehs', 'other', 'notes', ]
 
 const SPECIAL_CHARACTERS = {
     '++': 'pros',
@@ -40,19 +40,255 @@ const AVAILBLE_DIMENSIONS = [
     "Inventing and Learning",
 ];
 
+const QUESTIONS = {
+    technical_pairing: [
+        {
+          title: 'Interview Type',
+          value: 'Technical Pairing\n',
+          field: 'overview'
+        },
+        {
+          title: 'Hiring Decision',
+          value: '',
+          field: 'overview'
+
+        },
+        {
+          title: 'Pros and cons',
+          value: '',
+          field: 'pros'
+        },
+        {
+          title: 'Did the candidate reach an acceptable solution?',
+          value: '',
+          field: 'other'
+        },
+        {
+          title: 'How well did the candidate collaborate and communicate?',
+          value: '',
+          field: 'other'
+        },
+        {
+          title: 'Code',
+          value: ''
+              + '```\n'
+              + 'Enclose code in triple backticks\n'
+              + '```',
+          field: 'other'
+        },
+        {
+          title: 'Additional Notes',
+          value: '',
+          field: 'notes'
+        },
+    ],
+    technical_screen: [
+        {
+          title: 'Interview Type',
+          value: 'Technical Screen',
+          field: 'overview'
+        },
+        {
+          title: 'Hiring Decision',
+          value: '',
+          field: 'overview'
+        },
+        {
+          title: 'Next Steps',
+          value: '',
+          field: 'next-steps'
+        },
+        {
+          title: 'Pros and cons',
+          value: '',
+          field: 'pros'
+        },
+        {
+          title: 'Did the candidate reach an acceptable solution?',
+          value: '',
+          field: 'other'
+        },
+        {
+          title: 'How well did the candidate collaborate and communicate?',
+          value: '',
+          field: 'other',
+        },
+        {
+          title: 'Code',
+          value: '\n'
+              + '```\n'
+              + 'Enclose code in triple backticks\n'
+              + '```',
+          field: 'notes'
+        },
+        {
+          title: 'Additional Notes',
+          value: '',
+          field: 'notes'
+        },
+    ],
+    campus_pairing: [
+        {
+          title: 'Interview Type',
+          value: 'Campus Pairing',
+          field: 'overview',
+        },
+        {
+          title: 'Hiring Decision',
+          value: '',
+          field: 'overview',
+        },
+        {
+          title: 'Pros and cons (include Communication, Collaboration, Code Fluency and Analysis)',
+          value: '',
+          field: 'pros'
+        },
+        {
+          title: 'Did the candidate reach an acceptable solution? '
+              + 'If not, were they on the right track to completing the problem?',
+          value: '',
+          field: 'other'
+        },
+        {
+          title: 'Code',
+          value: '\n'
+              + '```<br/>'
+              + 'Enclose code in triple backticks<br/>'
+              + '```',
+          field: 'other'
+        },
+        {
+          title: 'Additional Notes',
+          value: '',
+          field: 'notes'
+        },
+    ],
+    qa_architecture: [
+        {
+          title: 'Interview Type',
+          value: 'Q&A Architecture'
+        },
+        {
+          title: 'Hiring Decision',
+          value: ''
+        },
+        {
+          title: 'Pros and cons',
+        },
+        {
+          title: 'Additional Notes',
+          value: 'Optional'
+        },
+    ],
+    qa_past_experience: [
+        {
+          title: 'Interview Type',
+          value: 'Q&A Past Experience'
+        },
+        {
+          title: 'Hiring Decision',
+          value: 'Hire | No Hire | Neutral (discouraged)\n'
+              + '2-3 sentences supporting your decision'
+        },
+        {
+          title: 'Pros and cons',
+          value: '5-8 Pros and cons about the candidate with brief justification when possible. For '
+              + 'example, how well did the candidate perform at technical design, communication, '
+              + 'mentorship, community building, empathy, etc. See go/engrubric\n'
+              + '[++] **Dimension1**: Pro with justification\n'
+              + '[+] **Dimension2**: Pro with justification\n'
+              + '[+] **Dimension3**: Pro with justification\n'
+              + '[-] **Dimension4**: Con with justification\n'
+              + '[-] **Dimension5**: Con with justification'      },
+        {
+          title: 'Additional Notes',
+          value: 'Optional'
+        },
+    ],
+    qa_leadership: [
+        {
+          title: 'Interview Type',
+          value: 'Q&A Leadership'
+        },
+        {
+          title: 'Hiring Decision',
+          value: 'Hire | No Hire | Neutral (discouraged)\n'
+              + '2-3 sentences supporting your decision'
+        },
+        {
+          title: 'Pros and cons',
+          value: 'Pros and cons about the candidate with brief justification when possible. See go/engrubric\n'
+              + '\n'
+              + 'Required:\n'
+              + '[] **Mentorship**: Justification\n'
+              + '[] **Collaboration**: Justification\n'
+              + '[] **Team Effectiveness**: Justification\n'
+              + '\n'
+              + 'Recommended:\n'
+              + '[] **Communication**: Justification\n'
+              + '[] **Community Building**: Justification\n'
+              + '[] **Seeking Divergent Perspectives**: Justification\n'
+              + '[] **Taking Principled Risks**: Justification'      },
+        {
+          title: 'Additional Notes',
+          value: 'Optional'
+        },
+    ],
+    sell: [
+        {
+          title: 'Interview Type',
+          value: 'Sell'
+        },
+        {
+          title: 'Hiring Decision',
+          value: 'Hire | No Hire | Neutral\n'
+              + '2-3 sentences supporting your decision'
+        },
+        {
+          title: 'Additional Notes',
+          value: 'Optional'
+        },
+    ],
+    lunch: [
+        {
+          title: 'Interview Type',
+          value: 'Lunch'
+        },
+        {
+          title: 'Hiring Decision',
+          value: 'Hire | No Hire | Neutral\n'
+              + '2-3 sentences supporting your decision'
+        },
+        {
+          title: 'Additional Notes',
+          value: 'Optional'
+        },
+    ],
+    other: [
+    ]
+   };
+
+    const TEMPLATES_OPTION = {
+        title: 'Interview Type',
+        prompt: 'Select the type of interview',
+        options: ['Technical Pairing', 'Technical Screen', 'Campus Pairing', 'Q&A Architecture',
+            'Q&A Past Experience', 'Q&A Leadership', 'Other']
+    };
+
 $(function() {
     $('#notes-form').on('submit', function() {
         let noteText = $('#note-text').val();
         if (noteText == undefined || noteText == '') {
             return false;
         }
+
         takeNote(noteText);
         $('#note-text').val('');
         return false;
     });
 
-    $('#saveBtn').on('click', function() {
-        saveNotes();
+    $('#newInterviewBtn').on('click', function() {
+        newInterview(QUESTIONS, FIELDS, $('#interviewTypes')[0].value);
     });
 
     $('#clearBtn').on('click', function() {
@@ -74,10 +310,10 @@ $(function() {
         minLength: 3,
         source: function(request, response) {
 
-            var regex = new RegExp(/\+*\-*\s*/, 'g')
+            var regex = new RegExp(/\+*\-*\~?\s*/, 'g')
             regex.test(request.term);
             var prefix = request.term.substr(0, regex.lastIndex);
-            var possibleDimension = request.term.replace(/\+*\-*\s*/, '')
+            var possibleDimension = request.term.replace(/\+*\-*\~?\s*/, '')
 
             var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(possibleDimension), 'i' );
             response($.grep( AVAILBLE_DIMENSIONS, function( value ) {
@@ -105,7 +341,7 @@ function takeNote(text) {
     }
 }
 
-function record(field, text, prefix) {
+function record(field, text, prefix="") {
     let note = "<li>" + prefix + text + "</li>";
     const elem = $(`#${field}`)
     elem.append(note);
@@ -130,17 +366,41 @@ function clearFields() {
     });
 }
 
-function saveNotes() {
-  let name = prompt("Save as...");
-  if (name != '') {
-    fields = "";
-    FIELDS.forEach(function(field) {
-        fields += $(`#${field}`).html();
-    });
-    note = "<strong>" + name + "</strong>" + fields + "</br>";
-    localStorage.savedNotes += note;
-    $('#savedNotes').append(note);
+function addCandidateName(name) {
+    $('#name').append("<strong>" + name + "</strong>");
+}
 
-    clearFields();
-  }
+function newInterview(questionMap, fieldNames, interviewType) {
+    let name = prompt("Candidate Name?", "Name");
+    if (name) {
+        fields = "";
+        fieldNames.forEach(function(field) {
+            fields += $(`#${field}`).html();
+        });
+        note =  fields + "</br>";
+        localStorage.savedNotes += note;
+        $('#savedNotes').append(note);
+
+        clearFields();
+
+        if (interviewType) {
+            populateFields(questionMap, interviewType)
+        }
+
+        addCandidateName(name);
+
+    }
+}
+
+function keyName(rawName) {
+    return rawName.toLowerCase().replace(/ /g, "_").replace(/&/g, "");
+}
+
+function populateFields(questionMap, interviewType){
+    const questions = questionMap[keyName(interviewType)];
+    for (const question of questions) {
+        record(question.field, "<br/>")
+        record(question.field, '#### ' + question.title)
+        record(question.field,  question.value)
+    }
 }

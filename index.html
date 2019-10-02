@@ -13,10 +13,10 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<h1 class="col-xs-8 col-xs-offset-1 heading">Timestamp Notes</h1>
+				<h1 class="col-lg-4 col-lg-offset-4 heading">Timestamp Notes</h1>
 			</div>
 			<div class="row top-padded">
-				<div class="col-xs-8 col-xs-offset-1">
+				<div class="col-xs-8 col-xs-offset-2">
 					<table style="border:1px solid black; border-spacing:5px">
 						<tr>
 							<th>Ability to design, build, and operate software</th>
@@ -67,10 +67,10 @@
 			<div class="row top-padded">
 			</div>
 			<div class="row">
-				<div class="col-xs-8 col-xs-offset-1 top-padded">
+				<div class="col-xs-8 col-xs-offset-2 top-padded">
 					<form id="notes-form">
 						<div class="form-group">
-							<input id='note-text' class="form-control" type="text" placeholder="Start with '+', '++', '-', '--', '~' or '='."/>
+							<input id='note-text' class="form-control" type="text" placeholder="Start with '+', '++', '-', '--' to add pros and cons, or '=' to add an overview summary."/>
 						</div>
 						<div class="pull-right">
 							<button type="submit" class="btn btn-primary">Take Note</button>
@@ -79,29 +79,38 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class='well col-xs-8 col-xs-offset-1 top-padded'>
+				<div class='well col-xs-8 col-xs-offset-2 top-padded'>
+					<ul class="unf-list" id='name'></ul>
 					<ul class="unf-list" id='overview'></ul>
+					<ul class="unf-list" id='next-steps'></ul>
 					<ul class="unf-list" id='pros'></ul>
 					<ul class="unf-list" id='mehs'></ul>
 					<ul class="unf-list" id='cons'></ul>
+					<ul class="unf-list" id='other'></ul>
 					<ul class="unf-list" id='notes'></ul>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-8 col-xs-offset-1">
+				<div class="col-xs-8 col-xs-offset-2">
 					<div class="pull-right">
-						<button id="saveBtn" class="btn btn-primary">Save Notes As...</button>
-						<button id="clearBtn" class="btn btn-danger">Clear Notes</button>
+						<select id="interviewTypes">
+							<option>Technical Pairing</option>
+							<option>Technical Screen</option>
+							<option>Campus Pairing</option>
+							<option>Other</option>
+						</select>
+						<button id="newInterviewBtn" class="btn btn-primary">New Interview</button>
+						<button id="clearBtn" class="btn btn-danger">Clear Note</button>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-8 col-xs-offset-1 top-padded">
+				<div class="col-xs-8 col-xs-offset-2 top-padded">
 					<h1>Saved Notes</h1>
 				</div>
 			</div>
 			<div class="row">
-				<div class='well col-xs-8 col-xs-offset-1 top-padded'>
+				<div class='well col-xs-8 col-xs-offset-2 top-padded'>
 					<ul class="unf-list" id='savedNotes'></ul>
 				</div>
 			</div>
