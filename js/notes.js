@@ -29,7 +29,7 @@ const AVAILBLE_DIMENSIONS = [
     'Awareness',
     'Mentorship',
     'Empathy',
-    'Communciation',
+    'Communication',
     'Collaboration',
     'Community Building',
     'Team Effectiveness',
