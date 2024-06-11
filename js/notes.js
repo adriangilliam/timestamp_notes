@@ -19,32 +19,25 @@ const PREFIXES = {
 };
 
 const AVAILBLE_DIMENSIONS = [
-    'Analysis',
-    'Troubleshooting',
-    'Code Fluency',
-    'Code Maintainability',
-    'Technical Design',
-    'Domain Specific Knowledge',
-    'Curiosity',
-    'Awareness',
-    'Mentorship',
-    'Empathy',
-    'Communication',
-    'Collaboration',
-    'Community Building',
-    'Team Effectiveness',
-    'Economic Empowerment',
-    "Understanding Someone's Struggle",
-    "Seeking Divergent Perspectives",
-    "Taking Principled Risks",
-    "Inventing and Learning",
+  "Technical Competency",
+  "Problem Solving",
+  "Communication & Collaboration",
+  "Quality Assurance",
+  "Ownership",
+  "Team Building",
+  "GlossGenius Values",
+  "Obsess over customers’ success",
+  "Strive for excellence, and expect it",
+  "Break through walls for results",
+  "Move Fast",
+  "Make ambitious things happen",
 ];
 
 const QUESTIONS = {
-    technical_pairing: [
+    pair_programming: [
         {
           title: 'Interview Type',
-          value: 'Technical Pairing\n',
+          value: 'Pair Programming',
           field: 'overview'
         },
         {
@@ -271,8 +264,7 @@ const QUESTIONS = {
     const TEMPLATES_OPTION = {
         title: 'Interview Type',
         prompt: 'Select the type of interview',
-        options: ['Technical Pairing', 'Technical Screen', 'Campus Pairing', 'Q&A Architecture',
-            'Q&A Past Experience', 'Q&A Leadership', 'Other']
+        options: ['Pair Programming', 'Systems Design', 'Experience Interview', 'Other']
     };
 
 $(function() {
@@ -307,7 +299,7 @@ $(function() {
 
     $( "#note-text" ).autocomplete({
         autoFocus:true,
-        minLength: 3,
+        minLength: 1,
         source: function(request, response) {
 
             var regex = new RegExp(/\+*\-*\~?\s*/, 'g')
@@ -328,7 +320,17 @@ $(function() {
         $(this).autocomplete( "close" );
         return false;
     });
+
+    populateInterviewTypes();
 });
+
+function populateInterviewTypes() {
+  const selectElement = $('#interviewTypes');
+  TEMPLATES_OPTION.options.forEach(option => {
+      const optionElement = $('<option></option>').val(option).text(option);
+      selectElement.append(optionElement);
+  });
+}
 
 function takeNote(text) {
     var specialChar = Object.keys(SPECIAL_CHARACTERS).find(function(key) {
